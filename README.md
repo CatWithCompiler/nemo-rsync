@@ -22,7 +22,6 @@ Supports copying one or multiple selected files/folders.
 Non-Goals
 
 This project intentionally does not provide:
-
 rsync option editor
 preferences dialog
 bookmarks manager
@@ -33,16 +32,27 @@ background daemon
 queue manager
 advanced rsync flags
 
+Nemo Rsync intentionally does not:
+• Replace rsync
+• Replace SSH
+• Store passwords
+• Become a synchronization suite
+• Run background services
+• Hide terminal output
+• Invent its own transfer protocol
+
 If you need advanced rsync functionality, use rsync directly from the terminal.
 
-Design Principles
-No settings unless absolutely necessary.
-No feature should require reading a manual.
-Behave like Nemo whenever possible.
-Let rsync do the heavy lifting.
-If a feature adds complexity without helping the core workflow, don't add it.
-Project Philosophy
+Design Principles:
+1. No settings unless absolutely necessary.
+2. No feature should require reading a manual.
+3. Behave like Nemo whenever possible.
+4. Let rsync do the heavy lifting.
+5. If a feature adds complexity without helping the core workflow, don't add it.
+6. Explain first, diagnose second. Present technical details in human language whenever possible. Keep diagnostic information available, but secondary.
+7. Never hide useful information. Organize it.
 
+Project Philosophy:
 The plugin should adapt to the user's system, not ask the user to adapt to the plugin.
 
 Whenever possible it should automatically use:

@@ -1,25 +1,89 @@
 #!/bin/bash
 
-echo
-echo "=== Nemo Rsync ==="
-echo
+# ----------------------------------------
+# Helper Functions
+# ----------------------------------------
 
-# Last argument is always the destination.
+get_error_message() {
+
+    case "$1" in
+
+        23)
+            echo "Some files or directories could not be transferred."
+            ;;
+
+        24)
+            echo "Some source files disappeared during transfer."
+            ;;
+
+        12)
+            echo "An error occurred while transferring data."
+            ;;
+
+        255)
+            echo "SSH connection or authentication failed."
+            ;;
+
+        *)
+            echo "An unknown error occurred."
+            ;;
+
+    esac
+
+}
+
+print_separator() {
+
+    echo "------------------------------------------"
+
+}
+
+print_header() {
+
+    echo
+    echo "=========================================="
+    echo "              Nemo Rsync"
+    echo "=========================================="
+    echo
+
+}
+
+print_transfer_info() {
+    echo "Sources:"
+    echo
+
+    for source in "${sources[@]}"
+    do
+        echo "    $source"
+    done
+
+    echo
+    echo "Destination:"
+    echo
+    echo "    $destination"
+}
+
+# ----------------------------------------
+# Parse Arguments
+# ----------------------------------------
+
+print_header
+
+
 destination="${@: -1}"
-
-# Everything except the last argument are sources.
 sources=("${@:1:$#-1}")
 
-echo "Sources:"
-printf '  %s\n' "${sources[@]}"
+print_transfer_info
 
 echo
-echo "Destination:"
-echo "  $destination"
+print_separator
+echo "Starting transfer..."
+print_separator
+echo
 
-echo
-echo "Command:"
-echo
+# ----------------------------------------
+# Start Transfer
+# ----------------------------------------
 
 rsync \
     -a \
@@ -28,7 +92,36 @@ rsync \
     "${sources[@]}" \
     "$destination"
 
+RESULT=$?
+
+echo
+
+print_separator
+
+if [ "$RESULT" -eq 0 ]; then
+    echo "Transfer completed successfully."
+    echo
+    echo "Closing in 2 seconds..."
+    echo
+    print_separator
+
+    sleep 2
+    exit 0
+fi
+
+echo "Transfer failed."
+echo
+
+echo "$(get_error_message "$RESULT")"
+
+echo
+echo "Error code: $RESULT"
+
 echo
 echo "Press ENTER to close."
+print_separator
 
 read
+
+
+
