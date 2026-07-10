@@ -21,14 +21,12 @@ echo
 echo "Command:"
 echo
 
-printf "rsync -a --info=progress2 --human-readable"
-
-for source in "${sources[@]}"
-do
-    printf " \"%s\"" "$source"
-done
-
-printf " \"%s\"\n" "$destination"
+rsync \
+    -a \
+    --info=progress2 \
+    --human-readable \
+    "${sources[@]}" \
+    "$destination"
 
 echo
 echo "Press ENTER to close."
