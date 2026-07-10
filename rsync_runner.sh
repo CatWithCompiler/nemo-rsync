@@ -4,13 +4,14 @@ echo
 echo "=== Rsync Runner ==="
 echo
 
-echo "Destination:"
-echo "$1"
+echo "Arguments received:"
+echo
 
-echo
-echo "If you can read this..."
-echo
-echo "The terminal launcher works!"
+for arg in "$@"
+do
+    echo "$arg"
+done
+
 echo
 echo "Press ENTER to close."
 
