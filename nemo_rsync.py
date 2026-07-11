@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import gi
+import sys
 
 from terminal_launcher import launch_terminal
 
@@ -30,11 +31,8 @@ if response == Gtk.ResponseType.OK:
 
     destination = dialog.get_filename()
 
-    # Temporary test source.
-    # Later Nemo will provide the selected files.
-    sources = [
-        __file__
-    ]
+    # get source files except the first item because python program is always the first item
+    sources = sys.argv[1:]
 
     launch_terminal(
         "./rsync_runner.sh",
