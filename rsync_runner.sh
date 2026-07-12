@@ -63,9 +63,9 @@ print_transfer_info() {
     echo "    $destination"
 }
 
-# Comment out these options if checksums or compression behavior
-# should use rsync's defaults
-# Remove these options if they don't suit your workflow.
+# These options are tuned for fast local transfers.
+# Remove them if they don't suit your workflow or if you prefer
+# rsync's default checksum and compression behavior.
 RSYNC_OPTIONS=(
     -a
     --info=progress2
