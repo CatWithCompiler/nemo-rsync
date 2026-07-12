@@ -89,6 +89,9 @@ rsync \
     -a \
     --info=progress2 \
     --human-readable \
+    # Comment out using # checksum and lack of compression if they are not needed
+    --checksum-choice=xxh3 \
+    --no-compress \
     "${sources[@]}" \
     "$destination"
 
