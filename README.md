@@ -9,9 +9,23 @@ The goal is not to replace rsync, nor to become another graphical rsync frontend
 The goal is simply to make one of Linux's most reliable file copy tools available directly from Nemo.
 
 
-Prerequisites:
-Nemo-python package that provides python bindings for nemo components
-# Install this package from the Software manager or terminal with "sudo apt install nemo-python"
+
+## Prerequisites
+
+Install the required Nemo Python extension support from the Software Manager or through the terminal as follows:
+
+```bash
+sudo apt install nemo-python
+```
+
+After installation, restart Nemo:
+
+```bash
+nemo -q
+```
+
+Then launch Nemo again.
+
 
 
 
