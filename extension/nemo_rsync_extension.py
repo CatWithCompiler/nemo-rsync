@@ -9,10 +9,12 @@ from gi.repository import GObject, Nemo
 
 # import location of whereever the extension is actually located if the folder location changes and constants 
 # determine the directory where this script is located
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 
+#setting debug to True prints debug information
+DEBUG = False
 
 
 # define methods in class
@@ -48,6 +50,11 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
             *sources
         ]
 
+# Debug output
+        if DEBUG:
+            print("PROJECT_ROOT =", PROJECT_ROOT)
+            print("COMMAND =", command)
+
         subprocess.Popen(
             command,
             cwd=PROJECT_ROOT
@@ -57,7 +64,9 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
 
         self.files = files
 
-        print("get_file_items() called")
+# Debug output
+        if DEBUG:
+            print("get_file_items() called")
 
         rsync_item = Nemo.MenuItem(
             name="NemoRsync::Root",

@@ -24,6 +24,17 @@
 - Added Rsync submenu
 - Added local and SSH menu callbacks
 
+## v0.5.0
+
+- added install-dev script to simlink the working development directory to Nemo-Python/extensions directory
+- Updated nemo_rsync_extension with simlink and debug capability
+
+## v1.0
+
+- Nemo integration
+- "Rsync > Rsync to..." context menu
+- Local rsync transfers
+
 ---
 
 # Roadmap
