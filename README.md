@@ -137,3 +137,15 @@ Right click → Rsync to... → Select destination → Copy.
 Nothing more.
 
 The goal is to feel like a natural extension of Nemo rather than a separate application.
+
+
+Note:
+## Running from source
+
+Run the backend from the project root:
+
+```bash
+python3 -m backend.nemo_rsync <sources...>
+```
+
+The backend is part of the `backend` package and should be launched as a module.
