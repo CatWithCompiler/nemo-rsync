@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import subprocess
 import os
+import gi
+
+from gi.repository import Gtk
 
 # unquote allows parsing of filenames properly from the NemoVFSFille object URI
 from urllib.parse import urlparse, unquote
@@ -16,6 +19,7 @@ PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 #setting debug to True prints debug information
 DEBUG = False
 
+VERSION = "1.0.0"
 
 # define methods in class
 class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
@@ -88,12 +92,24 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
             tip="Copy files over SSH"
         )
 
+        about_item = Nemo.MenuItem(
+            name="NemoRsync::About",
+            label="About Nemo Rsync...",
+            tip="About this extension"
+        )
+
+        about_item.connect(
+            "activate",
+            self.on_about
+        )
+
         local_item.connect("activate", self.on_rsync)
 
         ssh_item.connect("activate", self.on_rsync_ssh)
 
         submenu.append_item(local_item)
         submenu.append_item(ssh_item)
+        submenu.append_item(about_item)
 
         rsync_item.set_submenu(submenu)
 
@@ -106,3 +122,25 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
     def on_rsync_ssh(self, menu):
 
         self.launch_backend("backend.nemo_rsync_ssh")
+
+
+    def on_about(self, menu):
+
+        dialog = Gtk.AboutDialog()
+
+        dialog.set_program_name("Nemo Rsync")
+        dialog.set_version(VERSION)
+        dialog.set_comments("Simple right-click rsync integration for Nemo.")
+        dialog.set_authors([
+            "Gabriel Ocolescu"
+        ])
+
+        dialog.set_comments(
+            "Developed with extensive assistance from ChatGPT (deal with it!)."
+        )
+
+        dialog.set_license_type(Gtk.License.MIT_X11)
+        dialog.set_website("Placeholder")
+
+        dialog.run()
+        dialog.destroy()
