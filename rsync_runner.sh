@@ -85,23 +85,23 @@ echo
 # Start Transfer
 # ----------------------------------------
 
+# Comment out using # checksum and lack of compression if they are not needed
 rsync \
     -a \
     --info=progress2 \
     --human-readable \
-    # Comment out using # checksum and lack of compression if they are not needed
     --checksum-choice=xxh3 \
     --no-compress \
     "${sources[@]}" \
     "$destination"
 
-RESULT=$?
+result=$?
 
 echo
 
 print_separator
 
-if [ "$RESULT" -eq 0 ]; then
+if [ "$result" -eq 0 ]; then
     echo "Transfer completed successfully."
     echo
     echo "Closing in 2 seconds..."
@@ -115,16 +115,16 @@ fi
 echo "Transfer failed."
 echo
 
-echo "$(get_error_message "$RESULT")"
+get_error_message "$result"
 
 echo
-echo "Error code: $RESULT"
+echo "Error code: $result"
 
 echo
 echo "Press ENTER to close."
 print_separator
 
-read
+read -r
 
 
 
