@@ -4,7 +4,7 @@ import gi
 import sys
 import os
 
-from terminal_launcher import launch_terminal
+from backend.terminal_launcher import launch_terminal
 
 # Tell Python we want GTK version 3.
 gi.require_version("Gtk", "3.0")
