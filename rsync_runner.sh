@@ -63,6 +63,17 @@ print_transfer_info() {
     echo "    $destination"
 }
 
+# Comment out these options if checksums or compression behavior
+# should use rsync's defaults
+# Remove these options if they don't suit your workflow.
+RSYNC_OPTIONS=(
+    -a
+    --info=progress2
+    --human-readable
+    --checksum-choice=xxh3
+    --no-compress
+)
+
 # ----------------------------------------
 # Parse Arguments
 # ----------------------------------------
@@ -85,13 +96,9 @@ echo
 # Start Transfer
 # ----------------------------------------
 
-# Comment out using # checksum and lack of compression if they are not needed
+
 rsync \
-    -a \
-    --info=progress2 \
-    --human-readable \
-    --checksum-choice=xxh3 \
-    --no-compress \
+    "${RSYNC_OPTIONS[@]}" \
     "${sources[@]}" \
     "$destination"
 
