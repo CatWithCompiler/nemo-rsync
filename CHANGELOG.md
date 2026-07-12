@@ -21,6 +21,8 @@
 - Successfully integrated with Nemo's extension system
 - Added first working context menu callback
 - Verified Python extension loading and activation
+- Added Rsync submenu
+- Added local and SSH menu callbacks
 
 ---
 
