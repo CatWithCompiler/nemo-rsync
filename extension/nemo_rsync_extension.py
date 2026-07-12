@@ -5,7 +5,9 @@ from gi.repository import GObject, Nemo
 
 class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
 
-    def get_file_items(self, files):
+    def get_file_items(self, window, files):
+
+        print("get_file_items() called")
 
         item = Nemo.MenuItem(
             name="NemoRsync::Test",
