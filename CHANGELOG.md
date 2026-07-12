@@ -16,6 +16,12 @@
 
 - Restructured project folders in preparation for v1.0
 
+## v0.4.0
+
+- Successfully integrated with Nemo's extension system
+- Added first working context menu callback
+- Verified Python extension loading and activation
+
 ---
 
 # Roadmap
