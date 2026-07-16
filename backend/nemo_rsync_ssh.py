@@ -28,13 +28,14 @@ if len(sys.argv) < 2:
 
 # Create a gtk dialog window.
 dialog = Gtk.Dialog(
-    title="Rsync to SSH",
-    buttons=(
-        Gtk.STOCK_CANCEL,
-        Gtk.ResponseType.CANCEL,
-        "Transfer",
-        Gtk.ResponseType.OK,
-    )
+    title="Rsync to SSH"
+)
+
+dialog.add_buttons(
+    Gtk.STOCK_CANCEL,
+    Gtk.ResponseType.CANCEL,
+    "Transfer",
+    Gtk.ResponseType.OK,
 )
 
 # Create an empty dialogue window

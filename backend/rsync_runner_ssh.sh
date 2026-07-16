@@ -49,18 +49,21 @@ print_header() {
 }
 
 print_transfer_info() {
-    echo "Sources:"
-    echo
+echo "Host:        $host"
+echo "User:        $user"
+echo "Port:        $port"
+echo "Remote path: $remote_path"
 
-    for source in "${sources[@]}"
-    do
-        echo "    $source"
-    done
+echo
+echo "Sources:"
 
-    echo
-    echo "Destination:"
-    echo
-    echo "    $destination"
+for source in "${sources[@]}"
+do
+    echo "    $source"
+done
+
+read -r
+exit 0
 }
 
 # These options are tuned for fast local transfers.
@@ -81,8 +84,12 @@ RSYNC_OPTIONS=(
 print_header
 
 
-destination="${@: -1}"
-sources=("${@:1:$#-1}")
+remote_path="${@: -1}"
+port="${@: -2:1}"
+user="${@: -3:1}"
+host="${@: -4:1}"
+
+sources=("${@:1:$#-4}")
 
 print_transfer_info
 
@@ -97,10 +104,10 @@ echo
 # ----------------------------------------
 
 
-rsync \
-    "${RSYNC_OPTIONS[@]}" \
-    "${sources[@]}" \
-    "$destination"
+#rsync \
+#    "${RSYNC_OPTIONS[@]}" \
+#    "${sources[@]}" \
+#    "$destination"
 
 result=$?
 
