@@ -1,6 +1,6 @@
 Nemo Rsync
 
-A lightweight Nemo extension that adds an "Rsync to..." context menu entry.
+A lightweight Nemo extension that adds an "Rsync to..." and "Rsync to SSH..."context menu entries.
 
 It behaves like Nemo's Copy To..., but performs the transfer using rsync while displaying a small progress terminal.
 
@@ -8,6 +8,7 @@ The goal is not to replace rsync, nor to become another graphical rsync frontend
 
 The goal is simply to make one of Linux's most reliable file copy tools available directly from Nemo.
 
+**Nemo Rsync stores no configuration, no transfer history, and no passwords.**
 
 
 ## Prerequisites
@@ -27,20 +28,36 @@ nemo -q
 Then launch Nemo again.
 
 
+## How to install
+
+2. Right-click install.sh
+3. Choose Properties → Permissions
+4. Enable "Allow executing file as program"
+5. Double-click install.sh
+6. Select "Run in Terminal"
 
 
-Features
-Right-click Rsync to... context menu entry.
-Native GTK folder selection dialog.
-Uses rsync for all transfers.
-Small terminal window displaying:
-Overall progress
-Amount transferred
-Transfer speed
-Estimated remaining time
-Closing the terminal window immediately cancels the transfer.
-Supports copying one or multiple selected files/folders.
-Non-Goals
+## Development
+
+For development, run:
+
+    install-dev.sh
+
+This will create simbolic links from your project directory to the appropriate plugins folders.
+
+
+
+## Features
+
+• Right-click "Rsync to..."
+• Right-click "Rsync to SSH..."
+• Native GTK destination dialogs
+• Supports multiple selected files and folders
+• Uses rsync directly
+• Uses the system terminal emulator
+• Live transfer progress
+• SSH password or SSH key authentication
+• Closing the terminal immediately cancels the transfer
 
 This project intentionally does not provide:
 rsync option editor
@@ -74,7 +91,7 @@ Design Principles:
 7. Never hide useful information. Organize it.
 
 Project Philosophy:
-The plugin should adapt to the user's system, not ask the user to adapt to the plugin.
+**The plugin should adapt to the user's system, not ask the user to adapt to the plugin.**
 
 Whenever possible it should automatically use:
 
@@ -85,54 +102,32 @@ existing Linux tools
 
 without requiring any configuration.
 
-Planned Architecture
+## Architecture
+
 Nemo
  │
  ▼
 Context Menu
  │
  ▼
-Folder Picker (GTK)
- │
- ▼
-Python Launcher
- │
- ▼
-Terminal Emulator
- │
- ▼
-rsync
+Local GTK Dialog
+    │
+    ├──────────────┐
+    ▼              ▼
+Folder Picker   SSH Dialog
+        │          │
+        └────┬─────┘
+             ▼
+      Python Launcher
+             │
+             ▼
+     Terminal Emulator
+             │
+             ▼
+           rsync
 
 
-Version Roadmap:
 
-v0.1.0
-Project skeleton
-GTK folder picker
-Runner script
-
-v0.2.0
-Launch terminal
-Launch rsync
-Display progress
-
-v0.3.0
-Nemo integration
-Right-click context menu
-
-v1.0.0
-First stable release.
-Feature complete.
-
-Future Development
-Bug fixes.
-Compatibility updates.
-
-Nothing else unless it clearly improves the core workflow.
-
-License
-
-(To be decided)
 
 
 # The "Grandma Test"
@@ -160,3 +155,6 @@ Nothing more.
 The goal is to feel like a natural extension of Nemo rather than a separate application.
 
 
+License
+
+MIT License

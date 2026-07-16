@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 #setting debug to True prints debug information
 DEBUG = False
 
-VERSION = "1.0.0"
+VERSION = "2.0.0"
 
 # define methods in class
 class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):

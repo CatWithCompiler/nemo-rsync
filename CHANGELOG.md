@@ -35,6 +35,13 @@
 - "Rsync > Rsync to..." context menu
 - Local rsync transfers
 
+## V2.0
+
+- Rsync to SSH added
+- Install script added
+- Updated README.md
+- Updated plugin version to 2.0
+
 ---
 
 # Roadmap

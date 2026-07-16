@@ -49,21 +49,21 @@ print_header() {
 }
 
 print_transfer_info() {
-echo "Host:        $host"
-echo "User:        $user"
-echo "Port:        $port"
-echo "Remote path: $remote_path"
 
-echo
-echo "Sources:"
+    echo "Host:        $host"
+    echo "User:        $user"
+    echo "Port:        $port"
+    echo "Remote path: $remote_path"
+    echo "SSH target:  $remote"
 
-for source in "${sources[@]}"
-do
-    echo "    $source"
-done
+    echo
+    echo "Sources:"
 
-read -r
-exit 0
+    for source in "${sources[@]}"
+    do
+        echo "    $source"
+    done
+
 }
 
 # These options are tuned for fast local transfers.
@@ -91,7 +91,16 @@ host="${@: -4:1}"
 
 sources=("${@:1:$#-4}")
 
+remote="${user}@${host}:${remote_path}"
+
 print_transfer_info
+
+# to remove the pause for confirmation comment out the following block of code.
+echo
+print_separator
+echo "Press ENTER to begin the transfer."
+print_separator
+read -r
 
 echo
 print_separator
@@ -104,10 +113,11 @@ echo
 # ----------------------------------------
 
 
-#rsync \
-#    "${RSYNC_OPTIONS[@]}" \
-#    "${sources[@]}" \
-#    "$destination"
+rsync \
+    "${RSYNC_OPTIONS[@]}" \
+    -e "ssh -p $port" \
+    "${sources[@]}" \
+    "$remote"
 
 result=$?
 
