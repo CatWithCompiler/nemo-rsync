@@ -28,7 +28,7 @@ def find_terminal():
 
     return None, None
 
-def launch_terminal(script, sources, destination):
+def launch_terminal(script, *arguments):
 
     terminal, launch_args = find_terminal()
 
@@ -40,8 +40,7 @@ def launch_terminal(script, sources, destination):
         [terminal]
         + launch_args
         + [script]
-        + sources
-        + [destination]
+        + list(arguments)
     )
 
     print("Launching:")
