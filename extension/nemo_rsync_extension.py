@@ -132,7 +132,7 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
         dialog.set_version(VERSION)
         dialog.set_comments("Simple right-click rsync integration for Nemo.")
         dialog.set_authors([
-            "Gabriel Ocolescu"
+            "https://github.com/CatWithCompiler"
         ])
 
         dialog.set_comments(
