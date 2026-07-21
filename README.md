@@ -11,6 +11,25 @@ The goal is simply to make one of Linux's most reliable file copy tools availabl
 **Nemo Rsync stores no configuration, no transfer history, and no passwords.**
 
 
+# Nemo Rsync
+
+![Nemo Rsync Screenshot](assets/images/context_menu.jpeg)
+
+Right click Nemo context menu
+
+![Rsync to... location selection](assets/images/location_picker.jpeg)
+
+Rsync to destination selection
+
+![Nemo Rsync to SSH...](assets/images/rsync_to_ssh.jpeg)
+
+Rsync to SSH dialog
+
+![Nemo Rsync to SSH progress](assets/images/terminal.jpeg)
+
+Rsync to SSH transfer window
+
+
 ## Prerequisites
 
 Install the required Nemo Python extension support from the Software Manager or through the terminal as follows:
