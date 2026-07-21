@@ -1,6 +1,6 @@
 Nemo Rsync
 
-A lightweight Nemo extension for Linux Mint Cinnamon's file manager that adds an "Rsync to..." and "Rsync to SSH..."context menu entries.
+A lightweight Nemo extension for Linux Mint Cinnamon's file manager that adds an **"Rsync to..."** and **"Rsync to SSH..."**context menu entries.
 
 It behaves like Nemo's Copy To..., but performs the transfer using rsync while displaying a small progress terminal.
 
@@ -33,9 +33,8 @@ Then launch Nemo again.
 2. Right-click install.sh
 3. Choose Properties → Permissions
 4. Enable "Allow executing file as program"
-5. Double-click install.sh
-6. Select "Run in Terminal"
-
+5. Open a terminal in the folder where install.sh is located
+6. type "./install.sh" without quotes and press enter
 
 ## Development
 
@@ -43,7 +42,7 @@ For development, run:
 
     install-dev.sh
 
-This will create simbolic links from your project directory to the appropriate plugins folders.
+This will create symbolic links from your project directory to the appropriate plugins folders.
 
 
 
@@ -60,15 +59,15 @@ This will create simbolic links from your project directory to the appropriate p
 • Closing the terminal immediately cancels the transfer
 
 This project intentionally does not provide:
-rsync option editor
-preferences dialog
-bookmarks manager
-favourites
-scheduled transfers
-synchronization jobs
-background daemon
-queue manager
-advanced rsync flags
+• rsync option editor
+• preferences dialog
+• bookmarks manager
+• favourites
+• scheduled transfers
+• synchronization jobs
+• background daemon
+• queue manager
+• advanced rsync flags
 
 Nemo Rsync intentionally does not:
 • Replace rsync
@@ -94,11 +93,10 @@ Project Philosophy:
 **The plugin should adapt to the user's system, not ask the user to adapt to the plugin.**
 
 Whenever possible it should automatically use:
-
-the user's preferred GTK theme
-the system file chooser
-an available terminal emulator
-existing Linux tools
+• the user's preferred GTK theme
+• the system file chooser
+• an available terminal emulator
+• existing Linux tools
 
 without requiring any configuration.
 
@@ -155,6 +153,6 @@ Nothing more.
 The goal is to feel like a natural extension of Nemo rather than a separate application.
 
 
-License
+## License
 
 MIT License
