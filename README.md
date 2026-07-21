@@ -1,6 +1,6 @@
 Nemo Rsync
 
-A lightweight Nemo extension for Linux Mint Cinnamon's file manager that adds an **"Rsync to..."** and **"Rsync to SSH..."**context menu entries.
+A lightweight Nemo extension for Linux Mint Cinnamon's file manager that adds an **"Rsync to..."** and **"Rsync to SSH..."** context menu entries.
 
 It behaves like Nemo's Copy To..., but performs the transfer using rsync while displaying a small progress terminal.
 
