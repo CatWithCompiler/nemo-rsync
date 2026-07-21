@@ -48,35 +48,35 @@ This will create symbolic links from your project directory to the appropriate p
 
 ## Features
 
-• Right-click "Rsync to..."
-• Right-click "Rsync to SSH..."
-• Native GTK destination dialogs
-• Supports multiple selected files and folders
-• Uses rsync directly
-• Uses the system terminal emulator
-• Live transfer progress
-• SSH password or SSH key authentication
-• Closing the terminal immediately cancels the transfer
+- Right-click "Rsync to..."
+- Right-click "Rsync to SSH..."
+- Native GTK destination dialogs
+- Supports multiple selected files and folders
+- Uses rsync directly
+- Uses the system terminal emulator
+- Live transfer progress
+- SSH password or SSH key authentication
+- Closing the terminal immediately cancels the transfer
 
 This project intentionally does not provide:
-• rsync option editor
-• preferences dialog
-• bookmarks manager
-• favourites
-• scheduled transfers
-• synchronization jobs
-• background daemon
-• queue manager
-• advanced rsync flags
+- rsync option editor
+- preferences dialog
+- bookmarks manager
+- favourites
+- scheduled transfers
+- synchronization jobs
+- background daemon
+- queue manager
+- advanced rsync flags
 
 Nemo Rsync intentionally does not:
-• Replace rsync
-• Replace SSH
-• Store passwords
-• Become a synchronization suite
-• Run background services
-• Hide terminal output
-• Invent its own transfer protocol
+- Replace rsync
+- Replace SSH
+- Store passwords
+- Become a synchronization suite
+- Run background services
+- Hide terminal output
+- Invent its own transfer protocol
 
 If you need advanced rsync functionality, use rsync directly from the terminal.
 
@@ -93,36 +93,28 @@ Project Philosophy:
 **The plugin should adapt to the user's system, not ask the user to adapt to the plugin.**
 
 Whenever possible it should automatically use:
-• the user's preferred GTK theme
-• the system file chooser
-• an available terminal emulator
-• existing Linux tools
+- the user's preferred GTK theme
+- the system file chooser
+- an available terminal emulator
+- existing Linux tools
 
 without requiring any configuration.
 
 ## Architecture
 
+
 Nemo
- │
- ▼
-Context Menu
- │
- ▼
-Local GTK Dialog
+└── Context Menu
+    ├── Rsync To...
+    │   ├── GTK Folder Picker
+    │   ├── Python Launcher
+    │   ├── Terminal Emulator
+    │   └── rsync
     │
-    ├──────────────┐
-    ▼              ▼
-Folder Picker   SSH Dialog
-        │          │
-        └────┬─────┘
-             ▼
-      Python Launcher
-             │
-             ▼
-     Terminal Emulator
-             │
-             ▼
-           rsync
+    └── Rsync to SSH...
+        ├── GTK SSH Dialog
+        ├── Terminal Emulator
+        └── rsync over SSH
 
 
 
