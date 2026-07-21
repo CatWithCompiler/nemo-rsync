@@ -140,7 +140,7 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
         )
 
         dialog.set_license_type(Gtk.License.MIT_X11)
-        dialog.set_website("Placeholder")
+        dialog.set_website("https://github.com/CatWithCompiler")
 
         dialog.run()
         dialog.destroy()
