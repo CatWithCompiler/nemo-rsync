@@ -102,7 +102,7 @@ without requiring any configuration.
 
 ## Architecture
 
-
+```text
 Nemo
 └── Context Menu
     ├── Rsync To...
@@ -115,8 +115,7 @@ Nemo
         ├── GTK SSH Dialog
         ├── Terminal Emulator
         └── rsync over SSH
-
-
+```
 
 
 
