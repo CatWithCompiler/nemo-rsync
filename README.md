@@ -153,6 +153,16 @@ Nothing more.
 The goal is to feel like a natural extension of Nemo rather than a separate application.
 
 
+## Support
+
+This project is provided as-is.
+
+Bug reports, feature requests and support are not provided.
+
+If the project does not meet your needs,
+you are welcome to modify it under the MIT License.
+
+
 ## License
 
 MIT License
