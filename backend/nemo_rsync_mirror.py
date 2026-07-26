@@ -53,7 +53,7 @@ if response == Gtk.ResponseType.OK:
 
     launch_terminal(
         RUNNER_SCRIPT,
-        sources,
+        *sources,
         destination
     )
 
