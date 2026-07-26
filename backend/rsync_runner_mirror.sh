@@ -96,6 +96,9 @@ echo "Mirror mode may delete files at the destination"
 echo "that are no longer present in the source."
 echo
 echo "Please ensure any important data has been backed up before continuing."
+echo
+echo
+
 print_separator
 echo "Press ENTER to begin the mirroring transfer."
 print_separator
