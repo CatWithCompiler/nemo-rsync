@@ -42,6 +42,12 @@
 - Updated README.md
 - Updated plugin version to 2.0
 
+## V3.0
+
+- Added Rsync "Mirror to" functionality to the context menu
+- Updated CHANGELOG.MD
+
+
 ---
 
 # Roadmap
