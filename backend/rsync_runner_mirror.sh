@@ -90,8 +90,12 @@ print_transfer_info
 # to remove the pause for confirmation comment out the following block of code.
 echo
 print_separator
-echo "WARNING! Mirroring can delete data at the target location as part of the mirroring process."
-echo "Please make sure your data is appropriately backed up against to protect against data loss."
+echo "WARNING!" 
+echo 
+echo "Mirror mode may delete files at the destination"
+echo "that are no longer present in the source."
+echo
+echo "Please ensure any important data has been backed up before continuing."
 print_separator
 echo "Press ENTER to begin the mirroring transfer."
 print_separator

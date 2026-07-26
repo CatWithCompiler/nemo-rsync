@@ -93,8 +93,8 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
         )
 
         local_item_mirror = Nemo.MenuItem(
-            name="NemoRsync::Local",
-            label="Rsync Mirror to...",
+            name="NemoRsync::LocalMirror",
+            label="Mirror to...",
             tip="Mirror files using rsync"
         )
 
