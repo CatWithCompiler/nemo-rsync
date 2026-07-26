@@ -77,6 +77,8 @@
 - Defaults / Settings dialog
 - Plugin preferences
 - `--dry-run` toggle
+- `--update` toggle
+- etc.
 
 
 

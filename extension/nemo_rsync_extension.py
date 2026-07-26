@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 #setting debug to True prints debug information
 DEBUG = False
 
-VERSION = "2.0.0"
+VERSION = "3.0.0"
 
 # define methods in class
 class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
@@ -92,6 +92,12 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
             tip="Copy files over SSH"
         )
 
+        local_item_mirror = Nemo.MenuItem(
+            name="NemoRsync::Local",
+            label="Rsync Mirror to...",
+            tip="Mirror files using rsync"
+        )
+
         about_item = Nemo.MenuItem(
             name="NemoRsync::About",
             label="About Nemo Rsync...",
@@ -107,8 +113,11 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
 
         ssh_item.connect("activate", self.on_rsync_ssh)
 
+        local_item_mirror.connect("activate", self.on_rsync_mirror)
+
         submenu.append_item(local_item)
         submenu.append_item(ssh_item)
+        submenu.append_item(local_item_mirror)
         submenu.append_item(about_item)
 
         rsync_item.set_submenu(submenu)
@@ -122,6 +131,10 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
     def on_rsync_ssh(self, menu):
 
         self.launch_backend("backend.nemo_rsync_ssh")
+
+
+    def on_rsync_mirror(self, menu):
+        self.launch_backend("backend.nemo_rsync_mirror")
 
 
     def on_about(self, menu):
