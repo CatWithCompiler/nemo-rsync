@@ -15,7 +15,7 @@ from gi.repository import Gtk
 # determine the directory where this script is located
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# build the absolute path to the rsync_runner.sh
+# build the absolute path to the rsync_runner_mirror.sh
 RUNNER_SCRIPT = os.path.join(
     SCRIPT_DIR,
     "rsync_runner_mirror.sh"

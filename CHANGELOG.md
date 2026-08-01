@@ -84,6 +84,7 @@
 - Plugin preferences
 - `--dry-run` toggle
 - `--update` toggle
+- Cinnamon notification
 - etc.
 
 

@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 #setting debug to True prints debug information
 DEBUG = False
 
-VERSION = "3.0.0"
+VERSION = "4.0.0"
 
 # define methods in class
 class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
@@ -53,6 +53,7 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
             module_name,
             *sources
         ]
+
 
 # Debug output
         if DEBUG:
@@ -92,10 +93,27 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
             tip="Copy files over SSH"
         )
 
+        #adds a Nemo menu separator
+
+        separator1 = Nemo.MenuItem.new_separator(
+            "NemoRsync::Separator1"
+        )
+
         local_item_mirror = Nemo.MenuItem(
             name="NemoRsync::LocalMirror",
             label="Mirror to...",
             tip="Mirror files using rsync"
+        )
+
+        ssh_item_mirror = Nemo.MenuItem(
+            name="NemoRsync::MirrorSSH",
+            label="Mirror to SSH...",
+            tip="Mirror files using rsync over SSH"
+        )
+
+        #adds a Nemo menu separator
+        separator2 = Nemo.MenuItem.new_separator(
+            "NemoRsync::Separator2"
         )
 
         about_item = Nemo.MenuItem(
@@ -115,9 +133,14 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
 
         local_item_mirror.connect("activate", self.on_rsync_mirror)
 
+        ssh_item_mirror.connect("activate", self.on_rsync_mirror_ssh)
+
         submenu.append_item(local_item)
         submenu.append_item(ssh_item)
+        submenu.append_item(separator1)
         submenu.append_item(local_item_mirror)
+        submenu.append_item(ssh_item_mirror)
+        submenu.append_item(separator2)
         submenu.append_item(about_item)
 
         rsync_item.set_submenu(submenu)
@@ -135,6 +158,10 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
 
     def on_rsync_mirror(self, menu):
         self.launch_backend("backend.nemo_rsync_mirror")
+
+
+    def on_rsync_mirror_ssh(self, menu):
+        self.launch_backend("backend.nemo_rsync_mirror_ssh")
 
 
     def on_about(self, menu):
