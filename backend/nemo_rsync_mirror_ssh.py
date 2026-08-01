@@ -15,10 +15,10 @@ from gi.repository import Gtk
 # determine the directory where this script is located
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# build the absolute path to the rsync_runner_ssh.sh
+# build the absolute path to the rsync_runner_mirror_ssh.sh
 RUNNER_SCRIPT = os.path.join(
     SCRIPT_DIR,
-    "rsync_runner_ssh.sh"
+    "rsync_runner_mirror_ssh.sh"
 )
 
 # gracefully exit if no files are supplied
@@ -28,7 +28,7 @@ if len(sys.argv) < 2:
 
 # Create a gtk dialog window.
 dialog = Gtk.Dialog(
-    title="Rsync to SSH"
+    title="Rsync Mirror to SSH"
 )
 
 dialog.add_buttons(

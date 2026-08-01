@@ -68,11 +68,11 @@
 
 ## v4.0
 
-- Synchronize
+- Mirror to SSH
 
 ## v5.0
 
-- Mirror to SSH
+- Synchronize
 
 ## v6.0
 
