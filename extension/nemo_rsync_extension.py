@@ -4,6 +4,7 @@ import os
 import gi
 
 from gi.repository import Gtk
+from gi.repository import GdkPixbuf
 
 # unquote allows parsing of filenames properly from the NemoVFSFille object URI
 from urllib.parse import urlparse, unquote
@@ -53,7 +54,6 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
             module_name,
             *sources
         ]
-
 
 # Debug output
         if DEBUG:
@@ -170,14 +170,34 @@ class NemoRsyncExtension(GObject.GObject, Nemo.MenuProvider):
 
         dialog.set_program_name("Nemo Rsync")
         dialog.set_version(VERSION)
-        dialog.set_comments("Simple right-click rsync integration for Nemo.")
+        dialog.set_comments(
+            "Simple right-click rsync integration for Nemo.\n\n"
+            "Developed with extensive assistance from ChatGPT (deal with it!)."
+            )
         dialog.set_authors([
             "https://github.com/CatWithCompiler"
         ])
 
-        dialog.set_comments(
-            "Developed with extensive assistance from ChatGPT (deal with it!)."
+        SCRIPT_DIR = os.path.dirname(
+            os.path.realpath(__file__)
         )
+
+        PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+        ICON_PATH = os.path.join(
+            SCRIPT_DIR,
+            "..",
+            "icons",
+            "nemo-rsync.png"
+        )
+
+        ICON_PATH = os.path.abspath(ICON_PATH)
+
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file(
+            ICON_PATH
+        )
+
+        dialog.set_logo(pixbuf)
 
         dialog.set_license_type(Gtk.License.MIT_X11)
         dialog.set_website("https://github.com/CatWithCompiler")

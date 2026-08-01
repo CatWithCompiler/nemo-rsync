@@ -77,9 +77,15 @@ print_separator
 echo "Installing extension..."
 echo
 
-cp -f \
-    extension/nemo_rsync_extension.py \
-    ~/.local/share/nemo-python/extensions/
+rm -rf ~/.local/share/nemo-rsync/extension
+
+cp -r \
+    extension \
+    ~/.local/share/nemo-rsync/
+
+ln -sfn \
+    ~/.local/share/nemo-rsync/extension/nemo_rsync_extension.py \
+    ~/.local/share/nemo-python/extensions/nemo_rsync_extension.py
 
 echo "✓ Extension installed."
 
@@ -96,6 +102,20 @@ cp -r \
     ~/.local/share/nemo-rsync/
 
 echo "✓ Backend installed."
+
+echo
+print_separator
+
+echo "Installing icons..."
+echo
+
+rm -rf ~/.local/share/nemo-rsync/icons
+
+cp -r \
+    icons \
+    ~/.local/share/nemo-rsync/
+
+echo "✓ Icons installed."
 
 echo
 print_separator

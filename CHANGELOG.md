@@ -47,6 +47,25 @@
 - Added Rsync "Mirror to" functionality to the context menu
 - Updated CHANGELOG.MD
 
+## V4.0
+
+NOTE: Installers have been reworked. If you are upgrading from a previous version, please delete:
+
+    ~/.local/share/nemo-python/extensions/nemo_rsync_extension.py
+
+and
+
+    ~/.local/share/nemo-rsync
+
+before installing.
+
+- Resolved rsync to drive root folder bug
+- Reworked installers and unified installation layout
+- Added "Mirror to SSH..." option
+- Polished plugin menu
+- Polished About dialog
+- Updated changelog and roadmap
+
 
 ---
 

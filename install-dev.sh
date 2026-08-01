@@ -6,6 +6,7 @@ mkdir -p "$INSTALL_ROOT"
 
 ln -sfn "$PWD/backend" "$INSTALL_ROOT/backend"
 ln -sfn "$PWD/extension" "$INSTALL_ROOT/extension"
+ln -sfn "$PWD/icons" "$INSTALL_ROOT/icons"
 
 mkdir -p ~/.local/share/nemo-python/extensions
 
