@@ -66,15 +66,28 @@ print_transfer_info() {
 
 }
 
-# These options are tuned for fast local transfers.
-# Remove them if they don't suit your workflow or if you prefer
-# rsync's default checksum and compression behavior.
+# ----------------------------------------
+# Checksum Selection
+# ----------------------------------------
+
+if rsync --version 2>/dev/null | grep -qw "xxh3"
+then
+    CHECKSUM_CHOICE="xxh3"
+    echo "Using xxh3 checksum."
+else
+    CHECKSUM_CHOICE="md5"
+    echo "xxh3 unavailable. Falling back to MD5."
+fi
+
+# ----------------------------------------
+# Rsync Options
+# ----------------------------------------
+
 RSYNC_OPTIONS=(
     -a
-    --delete
     --info=progress2
     --human-readable
-    --checksum-choice=xxh3
+    --checksum-choice="$CHECKSUM_CHOICE"
     --no-compress
 )
 
