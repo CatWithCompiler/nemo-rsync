@@ -89,15 +89,12 @@ before installing.
 
 - Mirror to SSH
 
+## v4.1
+
+- Added MD5 as fallback algorithm if xxh3 is not available
+
+
 ## v5.0
-
-- Synchronize
-
-## v6.0
-
-- Synchronize to SSH
-
-## v7.0
 
 - Defaults / Settings dialog
 - Plugin preferences
